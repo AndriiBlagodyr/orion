@@ -1,5 +1,6 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  // "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.detectIndentation": true,
   "editor.fontFamily": "'Dank Mono', Menlo, Monaco, 'Courier New', monospace",
@@ -30,7 +31,7 @@
     "**/.gh-pages": true
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": false
+    "source.fixAll.eslint": true
   },
   "eslint.validate": [
     "javascript",
@@ -56,7 +57,7 @@
     }
   },
   "workbench.colorTheme": "Night Owl",
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.iconTheme": "vscode-icons",
   "breadcrumbs.enabled": true,
   "grunt.autoDetect": "off",
   "gulp.autoDetect": "off",
