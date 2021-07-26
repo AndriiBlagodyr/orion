@@ -1,11 +1,10 @@
 {
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  // "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.detectIndentation": true,
   "editor.fontFamily": "'Dank Mono', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": false,
-  "editor.rulers": [80],
+  "editor.rulers": [120],
   "editor.snippetSuggestions": "top",
   "editor.wordBasedSuggestions": false,
   "editor.suggest.localityBonus": true,
@@ -31,14 +30,9 @@
     "**/.gh-pages": true
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": false
   },
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "eslint.options": {
     "env": {
       "browser": true,
