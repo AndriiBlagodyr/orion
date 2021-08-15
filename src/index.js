@@ -1,17 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// import { createClient, Provider } from '@urql/core';
+// import {createClient, Provider} from 'urql';
+import {Provider} from 'react-redux';
+import storeCreator from '../src/store/configureStore';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
+const store = storeCreator();
+
+// const CLIENT_URL = 'https://serve.onegraph.com/graphql?app_id=e7384078-d09c-427d-8bd5-d7e59e95f362';
+// const client = createClient({url: CLIENT_URL});
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

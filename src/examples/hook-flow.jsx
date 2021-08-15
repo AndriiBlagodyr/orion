@@ -1,7 +1,7 @@
 // Hook flow
 import * as React from 'react';
 
-function Child(): void {
+function Child() {
   console.log('%c    Child: render start', 'color: MediumSpringGreen');
 
   const [count, setCount] = React.useState(() => {
