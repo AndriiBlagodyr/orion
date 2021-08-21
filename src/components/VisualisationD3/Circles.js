@@ -2,20 +2,36 @@ import React, {useEffect} from 'react';
 import * as d3 from 'd3';
 
 export const Circles = () => {
-  const data = [25, 20, 10, 12, 15];
   useEffect(() => {
-    const svg = d3.select('#chart-area').append('svg').attr('width', 400).attr('height', 400);
+    d3.json('/data.json')
+      .then(data => {
+        data.forEach(d => {
+          d.age = Number(d.age);
+        });
 
-    const circles = svg.selectAll('circle').data(data);
+        const svg = d3.select('#chart-area').append('svg').attr('width', 400).attr('height', 400);
 
-    circles
-      .enter()
-      .append('circle')
-      .attr('cx', (d, i) => i * 50 + 50)
-      .attr('cy', 250)
-      .attr('r', d => d)
-      .attr('fill', 'red');
+        const circles = svg.selectAll('circle').data(data);
+
+        circles
+          .enter()
+          .append('circle')
+          .attr('cx', (d, i) => i * 50 + 50)
+          .attr('cy', 250)
+          .attr('r', d => 2 * d.age)
+          .attr('fill', d => {
+            if (d.name === 'Tony') {
+              return 'blue';
+            } else {
+              return 'red';
+            }
+          });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }, []);
+
   return (
     <div className="container">
       <div className="row">

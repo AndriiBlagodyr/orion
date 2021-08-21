@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
 import HookFlow from './examples/hook-flow.jsx';
 import {Circles} from './components/VisualisationD3/Circles';
+import {Buildings} from './components/VisualisationD3/Buildings';
 import Toolkit from './components/Toolkit';
 import './App.css';
 
@@ -21,6 +22,9 @@ export default function App() {
             <li>
               <Link to="/circles">Circles</Link>
             </li>
+            <li>
+              <Link to="/buildings">Buildings</Link>
+            </li>
           </ul>
         </nav>
 
@@ -33,6 +37,9 @@ export default function App() {
           </Route>
           <Route path="/circles">
             <Circles />
+          </Route>
+          <Route path="/buildings">
+            <Buildings />
           </Route>
         </Switch>
       </div>
