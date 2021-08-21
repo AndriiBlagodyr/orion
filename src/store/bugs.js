@@ -69,6 +69,7 @@ export const loadBugs = () => (dispatch, getState) => {
     apiCallBegan({
       url,
       onStart: bugsRequested.type,
+      // slice.actions.bugsReceived.type
       onSuccess: bugsReceived.type,
       onError: bugsRequestFailed.type,
     }),
