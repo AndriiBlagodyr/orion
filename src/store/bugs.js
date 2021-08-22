@@ -49,9 +49,6 @@ const slice = createSlice({
   },
 });
 
-console.log('SLICE');
-console.log(slice);
-
 export const {bugAdded, bugResolved, bugAssignedToUser, bugsReceived, bugsRequested, bugsRequestFailed} = slice.actions;
 export default slice.reducer;
 
@@ -69,7 +66,6 @@ export const loadBugs = () => (dispatch, getState) => {
     apiCallBegan({
       url,
       onStart: bugsRequested.type,
-      // slice.actions.bugsReceived.type
       onSuccess: bugsReceived.type,
       onError: bugsRequestFailed.type,
     }),
@@ -84,11 +80,27 @@ export const addBug = bug =>
     onSuccess: bugAdded.type,
   });
 
+// export const addBug = bug => {
+//   try {
+//     const response = await axios.post(url, bug);
+//     dispatch(bugAdded(bug));
+//   } catch (error) {
+//     dispatch({type: error});
+//   }
+//   apiCallBegan({
+//     url,
+//     method: 'post',
+//     data: bug,
+//     onSuccess: bugAdded.type,
+//   });
+// };
+
 export const resolveBug = id =>
   apiCallBegan({
     // /bugs
     // PATCH /bugs/1
-    url: `${url} + '/' + ${id}`,
+    // eslint-disable-next-line prefer-template
+    url: url + '/' + id,
     method: 'patch',
     data: {resolved: true},
     onSuccess: bugResolved.type,
@@ -96,7 +108,8 @@ export const resolveBug = id =>
 
 export const assignBugToUser = (bugId, userId) =>
   apiCallBegan({
-    url: `${url} + '/' + ${bugId}`,
+    // eslint-disable-next-line prefer-template
+    url: url + '/' + bugId,
     method: 'patch',
     data: {userId},
     onSuccess: bugAssignedToUser.type,

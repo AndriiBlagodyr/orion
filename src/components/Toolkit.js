@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
-import * as actions from '../store/api';
-import {loadBugs} from '../store/bugs';
+// eslint-disable-next-line no-unused-vars
+import {loadBugs, addBug, resolveBug} from '../store/bugs';
 
 export default function Toolkit() {
   const dispatch = useDispatch();
@@ -20,6 +20,8 @@ export default function Toolkit() {
     //   }),
     // );
     dispatch(loadBugs());
+    setTimeout(() => dispatch(resolveBug(2)), 2000);
+    dispatch(addBug({descrioption: 'test bugs'}));
   }, []);
 
   return <main>Toolkit Component</main>;
