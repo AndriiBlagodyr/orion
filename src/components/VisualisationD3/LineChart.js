@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React, {useEffect} from 'react';
 import * as d3 from 'd3';
 
-export const Chart = () => {
+export const LineChart = () => {
   useEffect(async () => {
     const dataset = await d3.json('/my_weather_data.json');
     console.log(dataset);
@@ -38,7 +39,7 @@ export const Chart = () => {
 
     const yScale = d3
       .scaleLinear()
-      // .domain([0,100])
+      // .domain([0, 100])
       .domain(d3.extent(dataset, yAccessor)) // domain defines an input space. Possibly to guess value like [0,100]
       .range([dimensions.boundedHeight, 0]); // range defines an outut space
     console.log(yScale(100)); //0, 50. The hight is 345 pixels...

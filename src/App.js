@@ -4,7 +4,8 @@ import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import HookFlow from './examples/hook-flow.jsx';
 import {Circles} from './components/VisualisationD3/Circles';
 import {Buildings} from './components/VisualisationD3/Buildings';
-import {Chart} from './components/VisualisationD3/Chart';
+import {LineChart} from './components/VisualisationD3/LineChart';
+import {ScatterPlot} from './components/VisualisationD3/ScatterPlot';
 import Toolkit from './components/Toolkit';
 import './App.css';
 
@@ -27,7 +28,10 @@ export default function App() {
               <Link to="/buildings">Buildings</Link>
             </li>
             <li>
-              <Link to="/chart">Chart</Link>
+              <Link to="/line-chart">LineChart</Link>
+            </li>
+            <li>
+              <Link to="/scatter-plot">ScatterPlot</Link>
             </li>
           </ul>
         </nav>
@@ -45,8 +49,11 @@ export default function App() {
           <Route path="/buildings">
             <Buildings />
           </Route>
-          <Route path="/chart">
-            <Chart />
+          <Route path="/line-chart">
+            <LineChart />
+          </Route>
+          <Route path="/scatter-plot">
+            <ScatterPlot />
           </Route>
         </Switch>
       </div>
