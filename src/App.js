@@ -6,6 +6,7 @@ import {Circles} from './components/VisualisationD3/Circles';
 import {Buildings} from './components/VisualisationD3/Buildings';
 import {LineChart} from './components/VisualisationD3/LineChart';
 import {ScatterPlot} from './components/VisualisationD3/ScatterPlot';
+import {BarChart} from './components/VisualisationD3/BarChart';
 import Toolkit from './components/Toolkit';
 import './App.css';
 
@@ -33,6 +34,9 @@ export default function App() {
             <li>
               <Link to="/scatter-plot">ScatterPlot</Link>
             </li>
+            <li>
+              <Link to="/barchart">BarChart</Link>
+            </li>
           </ul>
         </nav>
 
@@ -54,6 +58,9 @@ export default function App() {
           </Route>
           <Route path="/scatter-plot">
             <ScatterPlot />
+          </Route>
+          <Route path="/barchart">
+            <BarChart />
           </Route>
         </Switch>
       </div>
