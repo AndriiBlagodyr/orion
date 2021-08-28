@@ -145,6 +145,30 @@ export const BarChart = () => {
       const xAxis = bounds.select('.x-axis').transition(updateTransition).call(xAxisGenerator);
 
       const xAxisLabel = xAxis.select('.x-axis-label').text(metric);
+
+      // 7. Set up interactions
+
+      binGroups.select('rect').on('mouseenter', onMouseEnter).on('mouseleave', onMouseLeave);
+
+      const tooltip = d3.select('#tooltip');
+      function onMouseEnter(datum) {
+        tooltip.select('#count').text(yAccessor(datum));
+
+        const formatHumidity = d3.format('.2f');
+        tooltip.select('#range').text([formatHumidity(datum.x0), formatHumidity(datum.x1)].join(' - '));
+
+        const x = xScale(datum.x0) + (xScale(datum.x1) - xScale(datum.x0)) / 2 + dimensions.margin.left;
+        const y = yScale(yAccessor(datum)) + dimensions.margin.top;
+
+        // eslint-disable-next-line no-useless-concat
+        tooltip.style('transform', `translate(` + `calc( -50% + ${x}px),` + `calc(-100% + ${y}px)` + `)`);
+
+        tooltip.style('opacity', 1);
+      }
+
+      function onMouseLeave() {
+        tooltip.style('opacity', 0);
+      }
     };
 
     const metrics = [
