@@ -6,7 +6,7 @@ const searchArr = [1, 6, -1, 10];
 
 const isArraySubsequenceFirst = (baseArray, searchArray) => {
   let searchArrayIndex = 0;
-  let searchArrayLength = searchArray.length;
+  const searchArrayLength = searchArray.length;
 
   for (let index = 0; index < baseArray.length; index++) {
     if (baseArray[index] === searchArray[searchArrayIndex]) {
