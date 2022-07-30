@@ -40,6 +40,7 @@ const findTwoNumbers2 = (array, searchSum) => {
 };
 
 // Time O(nlog(n)) | Space O(1)
+// After sorting to get answer we'll need O(N) Time
 const findTwoNumbers3 = (array, searchSum) => {
   array.sort((a, b) => a - b);
   let left = 0;
