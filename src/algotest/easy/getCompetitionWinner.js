@@ -24,3 +24,7 @@ const getWinner = (games, results) => {
 };
 
 console.log(getWinner(competitions, resultsGames));
+
+
+
+
