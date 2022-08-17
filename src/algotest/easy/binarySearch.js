@@ -16,19 +16,6 @@ function binarySearch1(arr, el) {
     return -1;
 }
 
-// function binarySearch2(arr, el, left = 0, right = arr.length) {
-//     let middle = Math.floor((left + right) / 2);
-//     if (arr[middle] < el) {
-//         binarySearch2(arr, el, middle, right);
-//     } else if (arr[middle] > el) {
-//         binarySearch2(arr, el, left, middle);
-//     } else if (arr[middle] === el) {
-//         return middle;
-//     } else {
-//         return -1;
-//     }
-// }
-
 // O(log(n)) time | O(log(n)) space
 function binarySearch2(array, target) {
     return binarySearchHelper(array, target, 0, array.length - 1);
