@@ -13,14 +13,14 @@ export const BarChart = () => {
 
     const width = 500;
     const dimensions = {
-      width,
-      height: width * 0.6,
-      margin: {
-        top: 30,
-        right: 10,
-        bottom: 50,
-        left: 50,
-      },
+        width,
+        height: width * 0.6,
+        margin: {
+            top: 30,
+            right: 10,
+            bottom: 50,
+            left: 50,
+        },
     };
     dimensions.boundedWidth = dimensions.width - dimensions.margin.left - dimensions.margin.right;
     dimensions.boundedHeight = dimensions.height - dimensions.margin.top - dimensions.margin.bottom;
