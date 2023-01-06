@@ -1,11 +1,14 @@
+const {current} = require('@reduxjs/toolkit');
+
 class Node {
     constructor(val) {
         this.val = val;
         this.next = null;
+        this.prev = null;
     }
 }
 
-class LinkedList {
+class DoublyLinkedList {
     constructor() {
         this.head = null;
         this.tail = null;
@@ -15,9 +18,10 @@ class LinkedList {
         let node = new Node(val);
         if (this.head === null) {
             this.head = node;
-            this.tail = this.head;
+            this.tail = node;
         } else {
             this.tail.next = node;
+            node.prev = this.tail;
             this.tail = node;
         }
         this.length += 1;
@@ -25,31 +29,34 @@ class LinkedList {
     }
     pop() {
         if (this.length <= 1) {
+            let node = this.head;
             this.head = null;
             this.tail = null;
             this.length = 0;
-            return undefined;
+            return node;
         }
-        let current = this.head;
-        let newTail = this.head;
-        while (current.next) {
-            newTail = current;
-            current = current.next;
-        }
+        let current = this.tail;
+        let newTail = current.prev;
+        current.prev = null;
         newTail.next = null;
         this.tail = newTail;
-        this.length -= 1;
+        this.length--;
         return current;
     }
 
     shift() {
         if (!this.head) return undefined;
         let currentHead = this.head;
-        this.head = currentHead.next;
-        this.length -= 1;
-        if (this.length === 0) {
+        if (this.length === 1) {
+            this.head = null;
             this.tail = null;
+            this.length = 0;
+            return currentHead;
         }
+        let newHead = this.head.next;
+        currentHead.next = null;
+        newHead.prev = null;
+        this.length--;
         return currentHead;
     }
 
@@ -62,6 +69,7 @@ class LinkedList {
             return this;
         }
         newNode.next = this.head;
+        this.head.prev = newNode;
         this.head = newNode;
         this.length += 1;
         return this;
@@ -69,13 +77,23 @@ class LinkedList {
 
     get(index) {
         if (index < 0 || index > this.length - 1) {
-            return undefined;
+            return null;
         }
-        let counter = 0;
-        let current = this.head;
-        while (counter < index) {
-            current = current.next;
-            ++counter;
+        let mid = Math.floor(this.length / 2);
+        if (index <= mid) {
+            let counter = 0;
+            let current = this.head;
+            while (counter < index) {
+                current = current.next;
+                ++counter;
+            }
+            return current;
+        }
+        let counter = this.length;
+        current = this.tail;
+        while (counter > index) {
+            current = current.prev;
+            --counter;
         }
         return current;
     }
@@ -97,7 +115,9 @@ class LinkedList {
         const prev = get(index - 1);
         const temp = prev.next;
         prev.next = newNode;
+        newNode.prev = prev;
         newNode.next = temp;
+        temp.prev = newNode;
         this.length++;
         return true;
     }
@@ -108,7 +128,11 @@ class LinkedList {
         if (index === this.length - 1) return this.pop(val);
         const prewNode = this.get(index - 1);
         const removed = prewNode.next;
-        prevNode.next = removed.next;
+        const next = removed.next;
+        prevNode.next = next;
+        next.prev = prevNode;
+        removed.next = null;
+        removed.prev = null;
         this.length--;
         return removed;
     }

@@ -11,7 +11,7 @@ function findClosestValueInBst(tree, target) {
 
 function findClosestValueInBstHelper(tree, target, closest) {
     if (tree === null) return closest;
-    if (Math.abs(target - closest) > Math.abs(target - tree.value)) {
+    if (Math.abs(target - tree.value) < Math.abs(target - closest)) {
         closest = tree.value;
     }
     if (target < tree.value) {
@@ -26,7 +26,7 @@ function findClosestValueInBstHelper(tree, target, closest) {
 function findClosestValueInBstHelper2(tree, target, closest) {
     let currentNode = tree;
     while (currentNode !== null) {
-        if (Math.abs(target - closest) > Math.abs(target - currentNode.value)) {
+        if (Math.abs(target - currentNode.value) < Math.abs(target - closest)) {
             closest = currentNode.value;
         }
         if (target < currentNode.value) {
