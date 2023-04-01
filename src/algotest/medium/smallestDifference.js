@@ -1,6 +1,7 @@
 // O(nlog(n) + mlog(m)) time | O(1) space
 const arr1 = [1, 4, 2, 6, 34.67];
 const arr2 = [34, 65, 7, 23, 87, 76];
+//[ 34.67, 34 ]
 
 function smallestDifference(arrayOne, arrayTwo) {
   arrayOne.sort((a, b) => a - b);

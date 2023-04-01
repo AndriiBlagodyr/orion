@@ -17,3 +17,4 @@ function getNextIdx(currentIdx, array) {
   const nextIdx = (currentIdx + jump) % array.length;
   return nextIdx >= 0 ? nextIdx : nextIdx + array.length;
 }
+console.log(hasSingleCycle([2, 3, 1, -4, -4, 2]));

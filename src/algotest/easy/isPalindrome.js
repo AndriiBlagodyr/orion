@@ -37,6 +37,22 @@ function isPalindromeFourth(string) {
   return true;
 }
 
+var isPalindrome5 = function (palStr) {
+    let left = 0;
+    var getChar = function (right) {
+        if (right === palStr.length) {
+            return true;
+        }
+        let next = getChar(right + 1);
+        const currIsSame = palStr[left] === palStr[right];
+        ++left;
+
+        return currIsSame && next;
+    };
+
+    return getChar(0);
+};
+
 console.log(isPalindromeFirst(str));
 console.log(isPalindromeSecond(str));
 console.log(isPalindromeThird(str));
