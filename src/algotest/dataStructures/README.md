@@ -6,8 +6,17 @@ This directory contains comprehensive implementations of fundamental data struct
 
 ```
 dataStructures/
+├── algorithms/             # Essential algorithms for interviews
+│   ├── BinarySearch.js    # Binary search variants
+│   ├── TwoPointers.js     # Two pointers technique
+│   ├── SlidingWindow.js   # Sliding window technique
+│   ├── Backtracking.js    # Backtracking algorithms
+│   ├── Greedy.js          # Greedy algorithms
+│   ├── AlgorithmsTestRunner.js # Comprehensive test suite
+│   └── README.md          # Algorithms documentation
 ├── graphs/           # Graph-related data structures
-│   └── Graph.js      # Comprehensive Graph, WeightedGraph, DFS/BFS, Dijkstra
+│   ├── Graph.js      # Comprehensive Graph, WeightedGraph, DFS/BFS, Dijkstra
+│   └── Dijkstra.js   # Advanced Dijkstra + Prim's MST algorithms
 ├── trees/            # Tree data structures
 │   └── BinarySearchTree.js  # Complete BST implementation
 ├── lists/            # Linked list implementations
@@ -16,6 +25,23 @@ dataStructures/
 │   └── Heap.js       # MinHeap, MaxHeap, PriorityQueue
 ├── linear/           # Linear data structures
 │   └── Stack.js      # Stack, Queue, Deque
+├── sorting/          # Sorting algorithms collection
+│   ├── BubbleSort.js # Bubble Sort with variants
+│   ├── SelectionSort.js # Selection Sort with stable variant
+│   ├── InsertionSort.js # Insertion Sort + Shell Sort + Binary Insertion
+│   ├── MergeSort.js  # Merge Sort + Iterative + Bottom-up + Natural
+│   ├── QuickSort.js  # Quick Sort + Multiple pivot strategies + 3-way
+│   ├── HeapSort.js   # Heap Sort + Min-heap + Object sorting
+│   ├── CountingSort.js # Counting Sort + String/Object variants
+│   ├── RadixSort.js  # Radix Sort + MSD + String sorting
+│   ├── TopologicalSort.js # Topological Sort + DFS + Kahn's algorithm
+│   ├── SortingTestRunner.js # Comprehensive test suite
+│   └── README.md     # Sorting algorithms documentation
+├── dynamicProgramming/ # Dynamic programming algorithms
+│   ├── Knapsack.js   # Knapsack algorithms (0/1, Fractional, Unbounded)
+│   ├── LCS.js        # Longest Common Subsequence algorithms
+│   ├── DynamicProgrammingTestRunner.js # Comprehensive test suite
+│   └── README.md     # DP algorithms documentation
 ├── advanced/         # Advanced data structures
 │   ├── HashTable.js  # Hash table implementation
 │   ├── Trie.js       # Trie (prefix tree)
@@ -39,6 +65,22 @@ const { HashTable } = require('./advanced/HashTable');
 const { Trie } = require('./advanced/Trie');
 const { SegmentTree } = require('./advanced/SegmentTree');
 const { UnionFind } = require('./advanced/Union');
+
+// Import sorting algorithms
+const { mergeSort, quickSort } = require('./sorting/MergeSort');
+const { heapSort } = require('./sorting/HeapSort');
+const { topologicalSort } = require('./sorting/TopologicalSort');
+
+// Import algorithms
+const { binarySearch, findFirstOccurrence } = require('./algorithms/BinarySearch');
+const { twoSum, removeDuplicates } = require('./algorithms/TwoPointers');
+const { maxSumSubarray, minSubarrayLen } = require('./algorithms/SlidingWindow');
+const { permute, subsets, solveNQueens } = require('./algorithms/Backtracking');
+const { activitySelection, fractionalKnapsack } = require('./algorithms/Greedy');
+
+// Import dynamic programming algorithms
+const { knapsack01, fractionalKnapsack: knapsackFractional } = require('./dynamicProgramming/Knapsack');
+const { lcsDP, longestCommonSubstring } = require('./dynamicProgramming/LCS');
 ```
 
 ### Basic Examples
@@ -69,6 +111,23 @@ console.log(stack.pop()); // 2
 const bst = new BinarySearchTree();
 bst.insert(5).insert(3).insert(7);
 console.log(bst.find(3)); // Node with value 3
+
+// Sorting algorithms
+const arr = [64, 34, 25, 12, 22, 11, 90];
+console.log(mergeSort(arr)); // [11, 12, 22, 25, 34, 64, 90]
+
+// Algorithms
+const index = binarySearch([1, 3, 5, 7, 9], 5); // 2
+const indices = twoSum([2, 7, 11, 15], 9); // [0, 1]
+const maxSum = maxSumSubarray([1, 4, 2, 10, 23, 3, 1, 0, 20], 4); // 39
+const permutations = permute([1, 2, 3]); // [[1,2,3], [1,3,2], ...]
+
+// Dynamic programming
+const weights = [10, 20, 30];
+const values = [60, 100, 120];
+const capacity = 50;
+const knapsackResult = knapsack01(capacity, weights, values);
+console.log('Max value:', knapsackResult.maxValue); // 220
 ```
 
 ## 📊 Complexity Analysis

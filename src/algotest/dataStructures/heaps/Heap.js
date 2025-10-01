@@ -297,22 +297,8 @@ class PriorityQueue {
     }
 }
 
-// =============================================================================
-// HEAP SORT ALGORITHM
-// =============================================================================
-
-// Time Complexity: O(n log n) - buildHeap O(n) + n extractions O(n log n)
-// Space Complexity: O(1) - in-place sorting
-function heapSort(array) {
-    const heap = new MinHeap(array);
-    const sorted = [];
-
-    while (!heap.isEmpty()) {
-        sorted.push(heap.remove());
-    }
-
-    return sorted;
-}
+// Note: Comprehensive heap sort implementation is available in
+// dataStructures/sorting/HeapSort.js with multiple variants and optimizations
 
 // =============================================================================
 // HEAP UTILITY FUNCTIONS
@@ -399,12 +385,7 @@ function testHeaps() {
 
     console.log('\n' + '='.repeat(50) + '\n');
 
-    // Test HeapSort
-    console.log('Test 4: HeapSort');
-    const unsortedArray = [64, 34, 25, 12, 22, 11, 90];
-    console.log('Unsorted array:', unsortedArray);
-    const sortedArray = heapSort(unsortedArray);
-    console.log('Sorted array:', sortedArray);
+    // Note: Heap sort tests are available in dataStructures/sorting/HeapSort.js
 }
 
 // Run tests
@@ -415,7 +396,6 @@ module.exports = {
     MaxHeap,
     PriorityQueue,
     PriorityQueueNode,
-    heapSort,
     isMinHeap,
     isMaxHeap,
 };
