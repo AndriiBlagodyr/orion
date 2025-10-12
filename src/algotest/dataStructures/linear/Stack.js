@@ -269,6 +269,131 @@ class Deque {
 }
 
 // =============================================================================
+// MIN STACK IMPLEMENTATION
+// =============================================================================
+
+// Approach 1: Two Stacks Method
+// Time Complexity: O(1) for all operations
+// Space Complexity: O(n) - uses two stacks
+class MinStackTwoStacks {
+    constructor() {
+        this.dataStack = new Stack();
+        this.minStack = new Stack();
+    }
+
+    // Time Complexity: O(1)
+    // Space Complexity: O(1)
+    push(val) {
+        this.dataStack.push(val);
+
+        // Push to min stack only if it's empty or val is <= current minimum
+        if (this.minStack.isEmpty() || val <= this.minStack.peek()) {
+            this.minStack.push(val);
+        }
+
+        return this.dataStack.getSize();
+    }
+
+    // Time Complexity: O(1)
+    // Space Complexity: O(1)
+    pop() {
+        if (this.dataStack.isEmpty()) return null;
+
+        const val = this.dataStack.pop();
+
+        // Pop from min stack if the popped value was the minimum
+        if (!this.minStack.isEmpty() && val === this.minStack.peek()) {
+            this.minStack.pop();
+        }
+
+        return val;
+    }
+
+    // Time Complexity: O(1)
+    // Space Complexity: O(1)
+    top() {
+        return this.dataStack.peek();
+    }
+
+    // Time Complexity: O(1)
+    // Space Complexity: O(1)
+    getMin() {
+        return this.minStack.peek();
+    }
+
+    // Time Complexity: O(1)
+    // Space Complexity: O(1)
+    isEmpty() {
+        return this.dataStack.isEmpty();
+    }
+
+    // Time Complexity: O(1)
+    // Space Complexity: O(1)
+    getSize() {
+        return this.dataStack.getSize();
+    }
+}
+
+// Approach 2: Single Stack with Pairs
+// Time Complexity: O(1) for all operations
+// Space Complexity: O(n) - each element stores value and min
+class MinStackSingleStack {
+    constructor() {
+        this.stack = new Stack();
+    }
+
+    // Time Complexity: O(1)
+    // Space Complexity: O(1)
+    push(val) {
+        let min;
+        if (this.stack.isEmpty()) {
+            min = val;
+        } else {
+            min = Math.min(val, this.stack.peek().min);
+        }
+
+        // Store both value and minimum as an object
+        this.stack.push({ value: val, min: min });
+        return this.stack.getSize();
+    }
+
+    // Time Complexity: O(1)
+    // Space Complexity: O(1)
+    pop() {
+        if (this.stack.isEmpty()) return null;
+
+        const pair = this.stack.pop();
+        return pair.value;
+    }
+
+    // Time Complexity: O(1)
+    // Space Complexity: O(1)
+    top() {
+        if (this.stack.isEmpty()) return null;
+        return this.stack.peek().value;
+    }
+
+    // Time Complexity: O(1)
+    // Space Complexity: O(1)
+    getMin() {
+        if (this.stack.isEmpty()) return null;
+        return this.stack.peek().min;
+    }
+
+    // Time Complexity: O(1)
+    // Space Complexity: O(1)
+    isEmpty() {
+        return this.stack.isEmpty();
+    }
+
+    // Time Complexity: O(1)
+    // Space Complexity: O(1)
+    getSize() {
+        return this.stack.getSize();
+    }
+}
+
+// =============================================================================
 // STACK UTILITY FUNCTIONS
 // =============================================================================
 
@@ -429,6 +554,38 @@ function testLinearStructures() {
 
     console.log("Postfix evaluation '3 4 + 2 *':", evaluatePostfix('3 4 + 2 *'));
     console.log("Infix to postfix 'a+b*c':", infixToPostfix('a+b*c'));
+
+    console.log('\n' + '='.repeat(50) + '\n');
+
+    // Test MinStack (Two Stacks Approach)
+    console.log('Test 5: MinStack (Two Stacks Approach)');
+    const minStack1 = new MinStackTwoStacks();
+    minStack1.push(-2);
+    minStack1.push(0);
+    minStack1.push(-3);
+    console.log('After push(-2, 0, -3):');
+    console.log('Min:', minStack1.getMin()); // -3
+    console.log('Top:', minStack1.top()); // -3
+    minStack1.pop();
+    console.log('After pop():');
+    console.log('Top:', minStack1.top()); // 0
+    console.log('Min:', minStack1.getMin()); // -2
+
+    console.log('\n' + '='.repeat(50) + '\n');
+
+    // Test MinStack (Single Stack Approach)
+    console.log('Test 6: MinStack (Single Stack Approach)');
+    const minStack2 = new MinStackSingleStack();
+    minStack2.push(-2);
+    minStack2.push(0);
+    minStack2.push(-3);
+    console.log('After push(-2, 0, -3):');
+    console.log('Min:', minStack2.getMin()); // -3
+    console.log('Top:', minStack2.top()); // -3
+    minStack2.pop();
+    console.log('After pop():');
+    console.log('Top:', minStack2.top()); // 0
+    console.log('Min:', minStack2.getMin()); // -2
 }
 
 // Run tests
@@ -441,6 +598,8 @@ module.exports = {
     QueueNode,
     Deque,
     DequeNode,
+    MinStackTwoStacks,
+    MinStackSingleStack,
     isValidParentheses,
     evaluatePostfix,
     infixToPostfix,
