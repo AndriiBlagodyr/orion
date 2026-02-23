@@ -53,8 +53,8 @@ printList(reversed3);
  * ┌──────────────────┬────────────┬─────────────┬────────┬────────┐
  * │ Method           │ Whole List │ Sublist     │ Time   │ Space  │
  * ├──────────────────┼────────────┼─────────────┼────────┼────────┤
- * │ Head Insertion   │ ✅         │ ✅          │ O(n)   │ O(1)   │
- * │ Classic Iterative│ ✅         │ ✅          │ O(n)   │ O(1)   │
- * │ Recursive        │ ✅         │ ✅ (hard)   │ O(n)   │ O(n)   │
+ * │ Head Insertion   │ ✅         │ ✅          │ O(n)   │ O(1)    │
+ * │ Classic Iterative│ ✅         │ ✅          │ O(n)   │ O(1)    │
+ * │ Recursive        │ ✅         │ ✅ (hard)   │ O(n)   │ O(n)    │
  * └──────────────────┴────────────┴─────────────┴────────┴────────┘
  */
