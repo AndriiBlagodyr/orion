@@ -1,15 +1,15 @@
 /*
  * TREE TRAVERSAL METHODS - Complete Guide
- * 
+ *
  * Example Tree Structure:
  *          10
  *        /    \
  *       6      15
  *      / \    /  \
  *     3   8  12  20
- * 
+ *
  * Array representation: [10, 6, 15, 3, 8, 12, 20]
- * 
+ *
  * TRAVERSAL RESULTS FOR THE TREE ABOVE:
  * - Preorder (DFS):    [10, 6, 3, 8, 15, 12, 20]  (Root → Left → Right)
  * - Inorder (DFS):     [3, 6, 8, 10, 12, 15, 20]  (Left → Root → Right) - Sorted for BST!
@@ -64,7 +64,7 @@ class TreeTraversal {
     // =============================================================================
 
     // PREORDER: Root → Left → Right
-    // Use case: Create a copy of the tree, prefix expression evaluation
+    // Use case: Create a copy of the tree, prefix expression evaluation, serialization
     // Time: O(n), Space: O(h) where h is height
     preorderRecursive() {
         const result = [];
@@ -259,7 +259,7 @@ class TreeTraversal {
 
         while (queue.length > 0) {
             const [node, column] = queue.shift();
-            
+
             if (!columnMap.has(column)) {
                 columnMap.set(column, []);
             }
@@ -337,7 +337,7 @@ class TreeTraversal {
 
         while (queue.length > 0) {
             let node = queue.shift();
-            
+
             while (node !== null) {
                 result.push(node.value);
                 if (node.left) queue.push(node.left);
