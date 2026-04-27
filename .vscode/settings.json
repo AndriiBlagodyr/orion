@@ -164,6 +164,11 @@
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.cursorStyle": "line",
 
+    // Disable Node debugger auto-attach (removes the huge NODE_OPTIONS/VSCODE_INSPECTOR_OPTIONS noise
+    // and "Debugger attached." messages when running `node` in the integrated terminal)
+    "debug.javascript.autoAttachFilter": "disabled",
+    "debug.node.autoAttach": "off",
+
     // Workbench Configuration
     "workbench.colorTheme": "Monokai",
     "workbench.iconTheme": "vscode-icons",
