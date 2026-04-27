@@ -6,18 +6,12 @@ A comprehensive collection of dynamic programming algorithms implemented in Java
 
 ```
 dynamicProgramming/
-├── Knapsack.js                    # Knapsack algorithms (0/1, Fractional, Unbounded)
-├── LCS.js                         # Longest Common Subsequence algorithms
-├── DynamicProgrammingTestRunner.js # Comprehensive test suite
-└── README.md                      # This file
+├── Knapsack.js   # Knapsack algorithms (0/1, Fractional, Unbounded)
+├── LCS.js        # Longest Common Subsequence algorithms
+└── README.md     # This file
 ```
 
 ## 🚀 Quick Start
-
-### Run All Tests
-```bash
-node DynamicProgrammingTestRunner.js
-```
 
 ### Run Individual Algorithm Tests
 ```bash
