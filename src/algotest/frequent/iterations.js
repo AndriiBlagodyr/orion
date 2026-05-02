@@ -19,18 +19,25 @@ for (const idx in arr) console.log(idx, arr[idx]);
 // forEach — no break, no await
 arr.forEach((item, idx) => console.log(idx, item));
 
-// transformations
-arr.map((item, idx) => `${idx}:${item}`);
-arr.filter((item) => item !== 'b');
-arr.reduce((acc, item) => acc + item, '');
+// transformations — always return a NEW value, never mutate the source
+arr.map((item, idx) => `${idx}:${item}`); // ['0:a','1:b','2:c'] — same length, new array
+arr.filter((item) => item !== 'b');       // ['a','c']           — match: array of items, no match: []
+arr.filter((item) => item === 'z');       // []                  — no match -> empty array, NOT undefined
+arr.reduce((acc, item) => acc + item, ''); // 'abc'              — single accumulated value
+                                           // reduce on []        with initial value -> initial value
+                                           // reduce on []        without initial    -> TypeError
 
-// queries
-arr.some((item) => item === 'b');
-arr.every((item) => typeof item === 'string');
-arr.find((item) => item > 'a');
-arr.findIndex((item) => item === 'c');
-arr.findLast((item) => item <= 'c');
-arr.includes('a');
+// queries — return a boolean, an item, or an index
+arr.some((item) => item === 'b');     // true   — match: true,  no match: false
+arr.every((item) => typeof item === 'string'); // true — every item passes
+arr.find((item) => item > 'a');       // 'b'    — match: the FIRST item, no match: undefined
+arr.find((item) => item === 'z');     // undefined
+arr.findIndex((item) => item === 'c');// 2      — match: index, no match: -1
+arr.findIndex((item) => item === 'z');// -1
+arr.findLast((item) => item <= 'c');  // 'c'    — match: LAST item, no match: undefined
+arr.findLastIndex((item) => item === 'z'); // -1 — match: last index, no match: -1
+arr.includes('a');                    // true   — strict equality (===), uses SameValueZero (NaN === NaN here)
+arr.indexOf('z');                     // -1     — match: index, no match: -1
 
 // flatten
 [1, [2, [3]]].flat(2); // [1,2,3]
