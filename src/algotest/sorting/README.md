@@ -4,18 +4,21 @@ Self-contained implementations of classic sorting algorithms. Each file ends wit
 
 > **Note:** `TopologicalSort` is a graph algorithm, not a comparison sort — it lives in `algorithms/graphs/TopologicalSort.js`.
 
+Files are numbered in a suggested learning order (Insertion → … → Radix).
+
 ## Files
 
 ```
 sorting/
-├── BubbleSort.js       O(n²)         stable, in-place         baseline / educational
-├── SelectionSort.js    O(n²)         not stable, in-place     fewest swaps
-├── InsertionSort.js    O(n²)         stable, in-place         great for nearly-sorted / small n
-├── MergeSort.js        O(n log n)    stable, O(n) extra       guaranteed performance
-├── QuickSort.js        O(n log n)*   not stable, in-place     fastest in practice (avg)
-├── HeapSort.js         O(n log n)    not stable, in-place     no recursion, deterministic
-├── CountingSort.js     O(n + k)      stable, O(n + k) extra   small integer range
-└── RadixSort.js        O(d·(n + b))  stable, O(n + b) extra   fixed-length keys
+├── 01_InsertionSort.js   O(n²)         stable, in-place         great for nearly-sorted / small n
+├── 02_SelectionSort.js   O(n²)         not stable, in-place     fewest swaps
+├── 03_BubbleSort.js      O(n²)         stable, in-place         baseline / educational
+├── 04_MergeSort.js       O(n log n)    stable, O(n) extra       guaranteed performance
+├── 05_QuickSort.js       O(n log n)*   not stable, in-place     fastest in practice (avg)
+├── 06_HeapSort.js        O(n log n)    not stable, in-place     no recursion, deterministic
+├── 07_CountingSort.js    O(n + k)      stable, O(n + k) extra   small integer range
+├── 08_RadixSort.js       O(d·(n + b))  stable, O(n + b) extra   fixed-length keys
+└── 99_testingAlgo.js     scratch / experiments
 ```
 
 \* QuickSort is O(n²) worst-case; randomized pivot keeps the expected case O(n log n).
@@ -23,23 +26,14 @@ sorting/
 ## Run
 
 ```bash
-node src/algotest/sorting/MergeSort.js
-node src/algotest/sorting/QuickSort.js
+node src/algotest/sorting/04_MergeSort.js
+node src/algotest/sorting/05_QuickSort.js
 # …etc
 ```
 
-## Import
+## Using the code
 
-```javascript
-const { mergeSort }     = require('./MergeSort');
-const { quickSort }     = require('./QuickSort');
-const { heapSort }      = require('./HeapSort');
-const { bubbleSort }    = require('./BubbleSort');
-const { insertionSort } = require('./InsertionSort');
-const { selectionSort } = require('./SelectionSort');
-const { countingSort }  = require('./CountingSort');
-const { radixSort }     = require('./RadixSort');
-```
+These scripts are runnable demos. Copy the `*Sort` function into your solution or paste into LeetCode — they do not export modules (this repo uses `"type": "module"`).
 
 ## Complexity comparison
 

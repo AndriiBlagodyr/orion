@@ -297,8 +297,7 @@ class PriorityQueue {
     }
 }
 
-// Note: Comprehensive heap sort implementation is available in
-// dataStructures/sorting/HeapSort.js with multiple variants and optimizations
+// Note: A heap sort walkthrough lives in sorting/06_HeapSort.js (algotest).
 
 // =============================================================================
 // HEAP UTILITY FUNCTIONS
@@ -385,7 +384,7 @@ function testHeaps() {
 
     console.log('\n' + '='.repeat(50) + '\n');
 
-    // Note: Heap sort tests are available in dataStructures/sorting/HeapSort.js
+    // Note: Heap sort demo: see sorting/06_HeapSort.js
 }
 
 // Run tests
