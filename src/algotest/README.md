@@ -17,7 +17,7 @@ src/algotest/
 │   └── unionFind/           UnionFind (Disjoint Set)
 │   (SegmentTree lives in trees/)
 │
-├── sorting/                 sorting algorithms (BubbleSort, MergeSort, …)
+├── sorting/                 sorting algorithms (01_InsertionSort … 08_RadixSort)
 │
 ├── algorithms/              non-sort algorithms grouped by technique
 │   ├── searching/           BinarySearch + variants
@@ -38,7 +38,7 @@ src/algotest/
 ## Run any file
 
 ```bash
-node src/algotest/sorting/MergeSort.js
+node src/algotest/sorting/04_MergeSort.js
 node src/algotest/algorithms/searching/BinarySearch.js
 node src/algotest/dataStructures/heaps/Heap.js
 ```

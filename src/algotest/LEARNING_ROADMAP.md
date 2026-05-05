@@ -8,14 +8,14 @@ Use the checkboxes to track progress.
 
 Folder: [sorting/](./sorting)
 
-- [ ] [BubbleSort.js](./sorting/BubbleSort.js) — comparison + swap mechanics
-- [ ] [SelectionSort.js](./sorting/SelectionSort.js) — in-place selection
-- [ ] [InsertionSort.js](./sorting/InsertionSort.js) — partial sortedness, basis for TimSort
-- [ ] [MergeSort.js](./sorting/MergeSort.js) — first taste of recursion + divide-and-conquer
-- [ ] [QuickSort.js](./sorting/QuickSort.js) — partitioning, pivot strategies, randomization
-- [ ] [HeapSort.js](./sorting/HeapSort.js) — uses heap intuition (deepens in Phase 5)
-- [ ] [CountingSort.js](./sorting/CountingSort.js) — non-comparison sort, integer key range
-- [ ] [RadixSort.js](./sorting/RadixSort.js) — multi-pass non-comparison, builds on Counting
+- [ ] [01_InsertionSort.js](./sorting/01_InsertionSort.js) — partial sortedness, basis for TimSort
+- [ ] [02_SelectionSort.js](./sorting/02_SelectionSort.js) — in-place selection
+- [ ] [03_BubbleSort.js](./sorting/03_BubbleSort.js) — comparison + swap mechanics
+- [ ] [04_MergeSort.js](./sorting/04_MergeSort.js) — first taste of recursion + divide-and-conquer
+- [ ] [05_QuickSort.js](./sorting/05_QuickSort.js) — partitioning, pivot strategies, randomization
+- [ ] [06_HeapSort.js](./sorting/06_HeapSort.js) — uses heap intuition (deepens in Phase 5)
+- [ ] [07_CountingSort.js](./sorting/07_CountingSort.js) — non-comparison sort, integer key range
+- [ ] [08_RadixSort.js](./sorting/08_RadixSort.js) — multi-pass non-comparison, builds on Counting
 
 **By the end:** comfortable with recursion, in-place vs. out-of-place, stability, time/space trade-offs.
 
@@ -54,7 +54,7 @@ Folder: [trees/](./dataStructures/trees) — only the basic files for now
 Folder: [heaps/](./dataStructures/heaps)
 
 - [ ] [Heap.js](./dataStructures/heaps/Heap.js) — MinHeap, MaxHeap, PriorityQueue
-- [ ] Re-derive `HeapSort` from Phase 1 — should now feel obvious
+- [ ] Re-derive [06_HeapSort.js](./sorting/06_HeapSort.js) from Phase 1 — should now feel obvious
 
 ## Phase 6 — Searching
 

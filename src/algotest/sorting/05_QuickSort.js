@@ -18,28 +18,34 @@ function quickSort(nums) {
     return arr;
 }
 
-function quickSortInPlace(arr, low, high) {
-    if (low >= high) return;
-
-    const pivotIndex = partition(arr, low, high);
-    quickSortInPlace(arr, low, pivotIndex - 1);
-    quickSortInPlace(arr, pivotIndex + 1, high);
+function quickSortInPlace(arr, low = 0, high = arr.length - 1) {
+    if (low < high) {
+        const p = partition(arr, low, high);
+        quickSortInPlace(arr, low, p - 1);
+        quickSortInPlace(arr, p + 1, high);
+    }
+    return arr;
 }
 
 function partition(arr, low, high) {
-    const pivot = arr[high]; // last element as pivot
-    let i = low - 1;         // boundary of elements <= pivot
+    // 1. Обираємо pivot (найкраще — середній, щоб не було O(n^2))
+    const mid = Math.floor((low + high) / 2);
+    [arr[mid], arr[high]] = [arr[high], arr[mid]]; // міняємо місцями з останнім
 
+    const pivot = arr[high];
+    let i = low; // "Стіна": все, що зліва від i — менше за pivot
+
+    // 2. j біжить по масиву і перекидає менші елементи за "стіну"
     for (let j = low; j < high; j++) {
-        if (arr[j] <= pivot) {
-            i++;
+        if (arr[j] < pivot) {
             [arr[i], arr[j]] = [arr[j], arr[i]];
+            i++;
         }
     }
 
-    // Put the pivot right after the smaller-or-equal section.
-    [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
-    return i + 1;
+    // 3. Ставимо pivot на його законне місце (на стіну)
+    [arr[i], arr[high]] = [arr[high], arr[i]];
+    return i;
 }
 
 console.log(quickSort([5, 3, 8, 4, 2]));   // [2, 3, 4, 5, 8]
