@@ -12,7 +12,7 @@
 
 // Shift approach: one write per moved element, then drop `current` into the hole.
 // Shift - 2 operations while swap 3 operations. More effective than Bubble but still O(n^2).
-function insertionSort(nums) {
+function insertionSortShift(nums) {
     const arr = [...nums];
 
     for (let i = 1; i < arr.length; i++) {
