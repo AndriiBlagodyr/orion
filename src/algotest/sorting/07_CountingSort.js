@@ -9,23 +9,29 @@
 // Use it only when k is small compared to n. Great for small integer ranges
 // (e.g. ages, scores 0..100). Bad when values can be huge or floating point.
 
-function countingSort(nums) {
-    if (nums.length <= 1) return [...nums];
+function countSort(array) {
+    if (array.length <= 1) return [...array];
 
-    const min = Math.min(...nums);
-    const max = Math.max(...nums);
+    const min = Math.min(...array);
+    const max = Math.max(...array);
+
     const count = new Array(max - min + 1).fill(0);
 
-    for (const num of nums) count[num - min]++;
+    // Count frequencies
+    for (const num of array) {
+        count[num - min]++;
+    }
 
-    const result = [];
-    for (let value = 0; value < count.length; value++) {
-        for (let k = 0; k < count[value]; k++) {
-            result.push(value + min);
+    const res = [];
+
+    // Reconstruct sorted array
+    for (let i = 0; i < count.length; i++) {
+        for (let j = 0; j < count[i]; j++) {
+            res.push(i + min);
         }
     }
 
-    return result;
+    return res;
 }
 
 console.log(countingSort([4, 2, 2, 8, 3, 3, 1])); // [1, 2, 2, 3, 3, 4, 8]
