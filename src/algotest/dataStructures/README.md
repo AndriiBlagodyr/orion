@@ -7,7 +7,7 @@ Each file is self-contained — `node FileName.js` runs its own demos.
 
 ```
 dataStructures/
-├── linkedLists/        SinglyLinkedList, DoublyLinkedList + practice problems
+├── linkedLists/        SinglyLinkedList, DoublyLinkedList
 ├── stacksQueues/       Stack, Queue, Deque
 ├── trees/              BinaryTree, BinarySearchTree, traversals, SegmentTree
 ├── heaps/              MinHeap, MaxHeap, PriorityQueue

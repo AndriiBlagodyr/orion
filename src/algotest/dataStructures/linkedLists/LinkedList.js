@@ -47,7 +47,7 @@ class SinglyLinkedList {
             this.length = 0;
             return undefined;
         }
-        let current = this.head;
+        let current = this.head; // 1  -  2. -  3 - 4  -  null
         let newTail = this.head;
         while (current.next) {
             newTail = current;
