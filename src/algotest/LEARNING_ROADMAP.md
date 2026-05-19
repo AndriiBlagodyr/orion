@@ -9,8 +9,8 @@ Use the checkboxes to track progress.
 Folder: [sorting/](./sorting)
 
 - [ ] [01_InsertionSort.js](./sorting/01_InsertionSort.js) — partial sortedness, basis for TimSort
-- [ ] [02_SelectionSort.js](./sorting/02_SelectionSort.js) — in-place selection
-- [ ] [03_BubbleSort.js](./sorting/03_BubbleSort.js) — comparison + swap mechanics
+- [x] [02_SelectionSort.js](./sorting/02_SelectionSort.js) — in-place selection
+- [x] [03_BubbleSort.js](./sorting/03_BubbleSort.js) — comparison + swap mechanics
 - [ ] [04_MergeSort.js](./sorting/04_MergeSort.js) — first taste of recursion + divide-and-conquer
 - [ ] [05_QuickSort.js](./sorting/05_QuickSort.js) — partitioning, pivot strategies, randomization
 - [ ] [06_HeapSort.js](./sorting/06_HeapSort.js) — uses heap intuition (deepens in Phase 5)
@@ -23,11 +23,11 @@ Folder: [sorting/](./sorting)
 
 Folders: [linkedLists/](./dataStructures/linkedLists), [stacksQueues/](./dataStructures/stacksQueues)
 
-- [ ] Singly Linked List — insert / delete / reverse / cycle detection
-- [ ] Doubly Linked List — used in `LRUCache` later
-- [ ] Stack — LIFO (paren matching, monotonic stack patterns)
-- [ ] Queue — FIFO (BFS in Phase 10 depends on this)
-- [ ] Deque — both ends
+- [x] Singly Linked List — insert / delete / reverse / cycle detection
+- [x] Doubly Linked List — used in `LRUCache` later
+- [x] Stack — LIFO (paren matching, monotonic stack patterns)
+- [x] Queue — FIFO (BFS in Phase 10 depends on this)
+- [x] Deque — both ends
 
 **Skill goal:** pointer manipulation without re-creating arrays.
 
