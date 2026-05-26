@@ -8,7 +8,7 @@ Use the checkboxes to track progress.
 
 Folder: [sorting/](./sorting)
 
-- [ ] [01_InsertionSort.js](./sorting/01_InsertionSort.js) — partial sortedness, basis for TimSort
+- [x] [01_InsertionSort.js](./sorting/01_InsertionSort.js) — partial sortedness, basis for TimSort
 - [x] [02_SelectionSort.js](./sorting/02_SelectionSort.js) — in-place selection
 - [x] [03_BubbleSort.js](./sorting/03_BubbleSort.js) — comparison + swap mechanics
 - [ ] [04_MergeSort.js](./sorting/04_MergeSort.js) — first taste of recursion + divide-and-conquer
