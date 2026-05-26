@@ -35,8 +35,8 @@ Folders: [linkedLists/](./dataStructures/linkedLists), [stacksQueues/](./dataStr
 
 Folder: [hashTables/](./dataStructures/hashTables)
 
-- [ ] [HashTable.js](./dataStructures/hashTables/HashTable.js) — hashing + collision strategies (chaining / open addressing)
-- [ ] [LRUCache.js](./dataStructures/hashTables/LRUCache.js) — combines HashTable + Doubly Linked List (Phase 2 payoff)
+- [x] [HashTable.js](./dataStructures/hashTables/HashTable.js) — hashing + collision strategies (chaining / open addressing)
+- [x] [LRUCache.js](./dataStructures/hashTables/LRUCache.js) — combines HashTable + Doubly Linked List (Phase 2 payoff)
 
 **Skill goal:** O(1) lookup intuition, the workhorse of interview problems.
 

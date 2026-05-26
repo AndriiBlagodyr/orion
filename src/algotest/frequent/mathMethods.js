@@ -71,7 +71,8 @@ function primeFactors(num) {
 function countDigits(num) {
     num = Math.abs(num);
     if (num === 0) return 1;
-    return Math.floor(Math.log10(num)) + 1;
+    return Math.floor(Math.log10(num)) + 1; // O(1) math approach
+    // Alternative: String(Math.abs(num)).length (simpler, but slower)
 }
 
 function digitSum(num) {
@@ -97,6 +98,24 @@ function reverseNumber(num) {
     }
 
     return sign * reversed;
+}
+
+
+// ---------- GCD & LCM ----------
+// Greatest Common Divisor (Euclidean Algorithm)
+function gcd(a, b) {
+    while (b !== 0) {
+        const temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return Math.abs(a);
+}
+
+// Least Common Multiple
+function lcm(a, b) {
+    if (a === 0 || b === 0) return 0;
+    return Math.abs(a * b) / gcd(a, b);
 }
 
 
@@ -133,6 +152,8 @@ primeFactors(84);             // [2, 2, 3, 7]
 countDigits(12345);           // 5
 digitSum(12345);              // 15
 reverseNumber(-123);          // -321
+gcd(12, 18);                  // 6
+lcm(12, 18);                  // 36
 range(0, 5);                  // [0, 1, 2, 3, 4]
 clamp(12, 0, 10);             // 10
 almostEqual(0.1 + 0.2, 0.3);  // true
