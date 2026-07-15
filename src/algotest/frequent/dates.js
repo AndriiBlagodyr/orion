@@ -75,6 +75,7 @@ const b = new Date(2026, 5, 1);
 
 a < b;                            // true (Date is coerced to number)
 a.getTime() === b.getTime();      // strict equality (a === b compares object refs!)
++a === +b;                        // another fast way using coercion to number
 
 const list = [new Date(2026, 11, 1), new Date(2026, 0, 15), new Date(2026, 5, 1)];
 list.sort((x, y) => x - y);

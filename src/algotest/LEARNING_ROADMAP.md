@@ -35,8 +35,8 @@ Folders: [linkedLists/](./dataStructures/linkedLists), [stacksQueues/](./dataStr
 
 Folder: [hashTables/](./dataStructures/hashTables)
 
-- [ ] [HashTable.js](./dataStructures/hashTables/HashTable.js) — hashing + collision strategies (chaining / open addressing)
-- [ ] [LRUCache.js](./dataStructures/hashTables/LRUCache.js) — combines HashTable + Doubly Linked List (Phase 2 payoff)
+- [x] [HashTable.js](./dataStructures/hashTables/HashTable.js) — hashing + collision strategies (chaining / open addressing)
+- [x] [LRUCache.js](./dataStructures/hashTables/LRUCache.js) — combines HashTable + Doubly Linked List (Phase 2 payoff)
 
 **Skill goal:** O(1) lookup intuition, the workhorse of interview problems.
 
@@ -44,8 +44,8 @@ Folder: [hashTables/](./dataStructures/hashTables)
 
 Folder: [trees/](./dataStructures/trees) — only the basic files for now
 
-- [ ] [TreeTraversals.js](./dataStructures/trees/TreeTraversals.js) — pre/in/post-order recursive + iterative + level-order BFS
-- [ ] [BinarySearchTree.js](./dataStructures/trees/BinarySearchTree.js) — insert / find / contains / delete
+- [x] [TreeTraversals.js](./dataStructures/trees/TreeTraversals.js) — pre/in/post-order recursive + iterative + level-order BFS
+- [x] [BinarySearchTree.js](./dataStructures/trees/BinarySearchTree.js) — insert / find / contains / delete
 
 **Skill goal:** recursion on tree shapes, stacking call frames.
 
@@ -53,7 +53,7 @@ Folder: [trees/](./dataStructures/trees) — only the basic files for now
 
 Folder: [heaps/](./dataStructures/heaps)
 
-- [ ] [Heap.js](./dataStructures/heaps/Heap.js) — MinHeap, MaxHeap, PriorityQueue
+- [x] [Heap.js](./dataStructures/heaps/Heap.js) — MinHeap, MaxHeap, PriorityQueue
 - [ ] Re-derive [06_HeapSort.js](./sorting/06_HeapSort.js) from Phase 1 — should now feel obvious
 
 ## Phase 6 — Searching

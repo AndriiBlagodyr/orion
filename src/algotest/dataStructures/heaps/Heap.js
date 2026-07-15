@@ -46,26 +46,65 @@ class Heap {
     }
 
     _siftDown(idx) {
-        const endIdx = this.heap.length - 1;
-        while (true) {
-            let leftChildIdx = idx * 2 + 1;
-            let rightChildIdx = idx * 2 + 2;
-            let targetIdx = idx;
+        const length = this.heap.length;
 
-            // Перевіряємо лівого сусіда
-            if (leftChildIdx <= endIdx && this.compare(this.heap[leftChildIdx], this.heap[targetIdx]) < 0) {
-                targetIdx = leftChildIdx;
-            }
-            // Перевіряємо правого сусіда
-            if (rightChildIdx <= endIdx && this.compare(this.heap[rightChildIdx], this.heap[targetIdx]) < 0) {
-                targetIdx = rightChildIdx;
+        while (idx < length) {
+            const leftChildIdx = idx * 2 + 1;
+            const rightChildIdx = idx * 2 + 2;
+
+            let bestIdx = idx; // Тут зберігатимемо індекс елемента з найвищим пріоритетом
+
+            // 1. Визначаємо, чи існує лівий син, і чи має він вищий пріоритет за поточний елемент
+            if (leftChildIdx < length) {
+                const isLeftBetter = this.compare(this.heap[leftChildIdx], this.heap[bestIdx]) < 0;
+                if (isLeftBetter) {
+                    bestIdx = leftChildIdx;
+                }
             }
 
-            if (targetIdx === idx) break; // Баланс відновлено
-            this._swap(idx, targetIdx);
-            idx = targetIdx;
+            // 2. Визначаємо, чи існує правий син, і чи він кращий за поточного лідера (батька або лівого сина)
+            if (rightChildIdx < length) {
+                const isRightBetter = this.compare(this.heap[rightChildIdx], this.heap[bestIdx]) < 0;
+                if (isRightBetter) {
+                    bestIdx = rightChildIdx;
+                }
+            }
+
+            // 3. Якщо найкращим елементом усе ще є сам батько (idx),
+            // значить, він став на своє правильне місце. Зупиняємося.
+            if (bestIdx === idx) {
+                break;
+            }
+
+            // 4. Якщо знайшовся син із вищим пріоритетом — міняємо їх місцями
+            this._swap(idx, bestIdx);
+
+            // 5. Переходимо на новий рівень дерева (слідом за елементом, що спускається)
+            idx = bestIdx;
         }
     }
+
+    // _siftDown(idx) {
+    //     const endIdx = this.heap.length - 1;
+    //     while (true) {
+    //         let leftChildIdx = idx * 2 + 1;
+    //         let rightChildIdx = idx * 2 + 2;
+    //         let targetIdx = idx;
+
+    //         // Перевіряємо лівого сусіда
+    //         if (leftChildIdx <= endIdx && this.compare(this.heap[leftChildIdx], this.heap[targetIdx]) < 0) {
+    //             targetIdx = leftChildIdx;
+    //         }
+    //         // Перевіряємо правого сусіда
+    //         if (rightChildIdx <= endIdx && this.compare(this.heap[rightChildIdx], this.heap[targetIdx]) < 0) {
+    //             targetIdx = rightChildIdx;
+    //         }
+
+    //         if (targetIdx === idx) break; // Баланс відновлено
+    //         this._swap(idx, targetIdx);
+    //         idx = targetIdx;
+    //     }
+    // }
 
     insert(value) {
         this.heap.push(value);

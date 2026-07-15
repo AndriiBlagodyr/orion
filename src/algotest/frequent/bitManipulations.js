@@ -28,12 +28,15 @@ console.log(5 ^ 3);            // 101 ^ 011 = 110 -> 6
 console.log(5 ^ 5);            // 0  -> a ^ a = 0
 console.log(5 ^ 0);            // 5  -> a ^ 0 = a
 
-// Swap two numbers without a temporary variable.
+// Swap two numbers without a temporary variable (XOR swap).
 let a = 7, b = 12;
 a = a ^ b;
 b = a ^ b; // = (a ^ b) ^ b = a
 a = a ^ b; // = (a ^ b) ^ a = b
 console.log(a, b);             // 12 7
+
+// Modern ES6+ swap using destructuring (cleaner and works for any type):
+// [a, b] = [b, a];
 
 
 // ---------- 4. NOT ~ ----------
