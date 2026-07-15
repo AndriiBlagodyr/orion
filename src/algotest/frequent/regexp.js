@@ -18,11 +18,16 @@ console.log(cleanStringWithUnderscoreRemoval("ab_c_d!!")); // "abcd"
 
 
 // ---------- 2. MANAGING SPACES ----------
+const removeAllSpaces = (str) => {
+    return str.replace(/\s+/g, '');
+};
+
 const trimAndSingleSpace = (str) => {
     // Replace multiple spaces/tabs/newlines with a single space and trim the ends
     return str.trim().replace(/\s+/g, ' ');
 };
 
+console.log(removeAllSpaces("  he llo  wor ld  ")); // "helloworld"
 console.log(trimAndSingleSpace("   Hello     world!   this   is  JS.  ")); // "Hello world! this is JS."
 
 
