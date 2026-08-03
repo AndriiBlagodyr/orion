@@ -8,11 +8,11 @@ Use the checkboxes to track progress.
 
 Folder: [sorting/](./sorting)
 
-- [x] [01_InsertionSort.js](./sorting/01_InsertionSort.js) — partial sortedness, basis for TimSort
-- [x] [02_SelectionSort.js](./sorting/02_SelectionSort.js) — in-place selection
-- [x] [03_BubbleSort.js](./sorting/03_BubbleSort.js) — comparison + swap mechanics
-- [ ] [04_MergeSort.js](./sorting/04_MergeSort.js) — first taste of recursion + divide-and-conquer
-- [ ] [05_QuickSort.js](./sorting/05_QuickSort.js) — partitioning, pivot strategies, randomization
+- [X] [01_InsertionSort.js](./sorting/01_InsertionSort.js) — partial sortedness, basis for TimSort
+- [X] [02_SelectionSort.js](./sorting/02_SelectionSort.js) — in-place selection
+- [X] [03_BubbleSort.js](./sorting/03_BubbleSort.js) — comparison + swap mechanics
+- [X] [04_MergeSort.js](./sorting/04_MergeSort.js) — first taste of recursion + divide-and-conquer
+- [X] [05_QuickSort.js](./sorting/05_QuickSort.js) — partitioning, pivot strategies, randomization
 - [ ] [06_HeapSort.js](./sorting/06_HeapSort.js) — uses heap intuition (deepens in Phase 5)
 - [ ] [07_CountingSort.js](./sorting/07_CountingSort.js) — non-comparison sort, integer key range
 - [ ] [08_RadixSort.js](./sorting/08_RadixSort.js) — multi-pass non-comparison, builds on Counting
@@ -23,11 +23,11 @@ Folder: [sorting/](./sorting)
 
 Folders: [linkedLists/](./dataStructures/linkedLists), [stacksQueues/](./dataStructures/stacksQueues)
 
-- [x] Singly Linked List — insert / delete / reverse / cycle detection
-- [x] Doubly Linked List — used in `LRUCache` later
-- [x] Stack — LIFO (paren matching, monotonic stack patterns)
-- [x] Queue — FIFO (BFS in Phase 10 depends on this)
-- [x] Deque — both ends
+- [] Singly Linked List — insert / delete / reverse / cycle detection
+- [] Doubly Linked List — used in `LRUCache` later
+- [] Stack — LIFO (paren matching, monotonic stack patterns)
+- [] Queue — FIFO (BFS in Phase 10 depends on this)
+- [] Deque — both ends
 
 **Skill goal:** pointer manipulation without re-creating arrays.
 
@@ -35,8 +35,8 @@ Folders: [linkedLists/](./dataStructures/linkedLists), [stacksQueues/](./dataStr
 
 Folder: [hashTables/](./dataStructures/hashTables)
 
-- [x] [HashTable.js](./dataStructures/hashTables/HashTable.js) — hashing + collision strategies (chaining / open addressing)
-- [x] [LRUCache.js](./dataStructures/hashTables/LRUCache.js) — combines HashTable + Doubly Linked List (Phase 2 payoff)
+- [] [HashTable.js](./dataStructures/hashTables/HashTable.js) — hashing + collision strategies (chaining / open addressing)
+- [] [LRUCache.js](./dataStructures/hashTables/LRUCache.js) — combines HashTable + Doubly Linked List (Phase 2 payoff)
 
 **Skill goal:** O(1) lookup intuition, the workhorse of interview problems.
 
@@ -44,8 +44,8 @@ Folder: [hashTables/](./dataStructures/hashTables)
 
 Folder: [trees/](./dataStructures/trees) — only the basic files for now
 
-- [x] [TreeTraversals.js](./dataStructures/trees/TreeTraversals.js) — pre/in/post-order recursive + iterative + level-order BFS
-- [x] [BinarySearchTree.js](./dataStructures/trees/BinarySearchTree.js) — insert / find / contains / delete
+- [] [TreeTraversals.js](./dataStructures/trees/TreeTraversals.js) — pre/in/post-order recursive + iterative + level-order BFS
+- [] [BinarySearchTree.js](./dataStructures/trees/BinarySearchTree.js) — insert / find / contains / delete
 
 **Skill goal:** recursion on tree shapes, stacking call frames.
 
@@ -53,7 +53,7 @@ Folder: [trees/](./dataStructures/trees) — only the basic files for now
 
 Folder: [heaps/](./dataStructures/heaps)
 
-- [x] [Heap.js](./dataStructures/heaps/Heap.js) — MinHeap, MaxHeap, PriorityQueue
+- [] [Heap.js](./dataStructures/heaps/Heap.js) — MinHeap, MaxHeap, PriorityQueue
 - [ ] Re-derive [06_HeapSort.js](./sorting/06_HeapSort.js) from Phase 1 — should now feel obvious
 
 ## Phase 6 — Searching
