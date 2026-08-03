@@ -19,23 +19,15 @@ function quickSort(nums) {
 }
 
 function quickSortInPlace(arr, low = 0, high = arr.length - 1) {
-    if (low < high) {
-        const p = partition(arr, low, high);
-        quickSortInPlace(arr, low, p - 1);
-        quickSortInPlace(arr, p + 1, high);
-    }
-    return arr;
-}
+    if (low >= high) return arr;
 
-function partition(arr, low, high) {
-    // 1. Обираємо pivot (найкраще — середній, щоб не було O(n^2))
+    // Lomuto partition — middle element as pivot
     const mid = Math.floor((low + high) / 2);
-    [arr[mid], arr[high]] = [arr[high], arr[mid]]; // міняємо місцями з останнім
+    [arr[mid], arr[high]] = [arr[high], arr[mid]];
 
     const pivot = arr[high];
-    let i = low; // "Стіна": все, що зліва від i — менше за pivot
+    let i = low;
 
-    // 2. j біжить по масиву і перекидає менші елементи за "стіну"
     for (let j = low; j < high; j++) {
         if (arr[j] < pivot) {
             [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -43,9 +35,12 @@ function partition(arr, low, high) {
         }
     }
 
-    // 3. Ставимо pivot на його законне місце (на стіну)
     [arr[i], arr[high]] = [arr[high], arr[i]];
-    return i;
+
+    quickSortInPlace(arr, low, i - 1);
+    quickSortInPlace(arr, i + 1, high);
+
+    return arr;
 }
 
 console.log(quickSort([5, 3, 8, 4, 2]));   // [2, 3, 4, 5, 8]
