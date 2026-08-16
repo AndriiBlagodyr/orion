@@ -8,25 +8,20 @@ const commentsUrl = 'https://api.example.com/comments';
 const Component1 = () => {
     const [data, setData] = useState(null);
 
-    // Виносимо логіку в useCallback
-    const fetchData = useCallback(async () => {
-        try {
-            const response = await fetch('https://run.mocky.io/v3/b3bcb9d2-d8e9-43c5-bfb7-0062c85be6f9');
-            const jsonData = await response.json();
-
-            setData(jsonData);
-        } catch (error) {
-            console.error('Помилка при завантаженні даних:', error);
-        }
-    }, []); // Порожній масив залежностей означає, що функція створиться лише один раз
-
     useEffect(() => {
-        fetchData();
-    }, [fetchData]); // Тепер ми можемо безпечно додати fetchData в залежності
+        // Define the fetch function inside useEffect
+        const fetchData = async () => {
+            try {
+                const response = await fetch('https://run.mocky.io/v3/b3bcb9d2-d8e9-43c5-bfb7-0062c85be6f9');
+                const jsonData = await response.json();
+                setData(jsonData);
+            } catch (error) {
+                console.error('Помилка при завантаженні даних:', error);
+            }
+        };
 
-    // useEffect(() => {
-    //     fetchData();
-    // }, []); // Помилка лінтера (exhaustive-deps)
+        fetchData();
+    }, []); // Clean empty dependency array, no linter warnings!
 
     return <>...</>;
 };
@@ -51,7 +46,7 @@ const PostComponent = () => {
                     'Content-Type': 'application/json', // Кажемо серверу, що шлемо JSON
                 },
                 body: JSON.stringify(payload), // Перетворюємо об'єкт у рядок
-                
+
             });
 
             if (!response.ok) {

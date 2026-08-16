@@ -1,6 +1,65 @@
 import {useRef, useEffect, useMemo, useState} from 'react';
 import {debounce} from 'lodash'; // or your preferred debounce utility
 
+import React, {useState, useEffect} from 'react';
+
+// 1. Custom Debounce Hook
+function useDebounce(value, delay = 300) {
+    const [debouncedValue, setDebouncedValue] = useState(value);
+
+    useEffect(() => {
+        // Set a timer to update debouncedValue after the specified delay
+        const timer = setTimeout(() => {
+            setDebouncedValue(value);
+        }, delay);
+
+        // Cancel the timer if 'value' or 'delay' changes (clears previous stroke)
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [value, delay]);
+
+    return debouncedValue;
+}
+
+// 2. Usage in a React Component
+export default function DebounceSearchInput() {
+    const [searchTerm, setSearchTerm] = useState('');
+
+    // Get debounced value (updates 500ms after user stops typing)
+    const debouncedSearchTerm = useDebounce(searchTerm, 500);
+
+    // 3. Trigger API call or heavy operation when debounced value updates
+    useEffect(() => {
+        if (debouncedSearchTerm) {
+            console.log(`📡 Fetching API results for: "${debouncedSearchTerm}"`);
+            // fetch(`https://api.example.com/search?q=${debouncedSearchTerm}`)
+        }
+    }, [debouncedSearchTerm]);
+
+    return (
+        <div style={{padding: '20px', fontFamily: 'sans-serif'}}>
+            <h3>Debounced Search</h3>
+            <input
+                type="text"
+                placeholder="Type to search..."
+                value={searchTerm}
+                onChange={e => setSearchTerm(e.target.value)}
+                style={{padding: '8px', width: '250px'}}
+            />
+
+            <div style={{marginTop: '15px'}}>
+                <p>
+                    <strong>Immediate input state:</strong> {searchTerm}
+                </p>
+                <p>
+                    <strong>Debounced value (API Trigger):</strong> {debouncedSearchTerm}
+                </p>
+            </div>
+        </div>
+    );
+}
+
 const useDebounce = (callback, delay = 1000) => {
     const ref = useRef(callback);
 
@@ -50,48 +109,3 @@ const Input = () => {
 
     return <input type="text" value={value} onChange={onChange} placeholder="Type to search..." />;
 };
-
-// Without a hook!
-// const Input = () => {
-//     const [value, setValue] = useState();
-
-//     const sendRequest = () => {
-//         // send request to the backend here
-//         // value is coming from state
-//         console.log(value);
-//     };
-
-//     // creating ref and initializing it with the sendRequest function
-//     const ref = useRef(sendRequest);
-
-//     useEffect(() => {
-//         // updating ref when state changes
-//         // now, ref.current will have the latest sendRequest with
-//         // access to the latest state
-//         ref.current = sendRequest;
-//     }, [value]);
-
-//     // creating debounced callback only once - on mount
-//     const debouncedCallback = useMemo(() => {
-//         // func will be created only once - on mount
-//         const func = () => {
-//             // ref is mutable! ref.current is a reference to the latest sendRequest
-//             ref.current?.();
-//         };
-
-//         // debounce the func that was created once, but has access to
-//         // the latest sendRequest
-//         return debounce(func, 1000);
-//         // no dependencies! never gets updated
-//     }, []);
-
-//     const onChange = e => {
-//         const value = e.target.value;
-//         setValue(value);
-
-//         // calling the debounced function
-//         debouncedCallback();
-//     };
-// };
-
-// export default Input;
