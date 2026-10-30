@@ -6,14 +6,16 @@
     "editor.detectIndentation": true,
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
-    "editor.fontFamily": "'Dank Mono', 'Fira Code', 'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "'JetBrains Mono', 'Dank Mono', 'Fira Code', Menlo, Monaco, 'Courier New', monospace",
     "editor.fontLigatures": true,
     "editor.fontSize": 14,
-    "editor.lineHeight": 1.5,
+    "editor.lineHeight": 1.6,
+    "editor.letterSpacing": 0.3,
     "editor.rulers": [80, 120],
     "editor.wordWrap": "on",
     "editor.minimap.enabled": true,
     "editor.minimap.maxColumn": 120,
+    "editor.cursorBlinking": "smooth",
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.smoothScrolling": true,
     "editor.renderWhitespace": "boundary",
@@ -159,8 +161,9 @@
     "prettier.useEditorConfig": false,
 
     // Terminal Configuration
-    "terminal.integrated.fontSize": 13,
-    "terminal.integrated.fontFamily": "'Fira Code', 'JetBrains Mono', monospace",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontFamily": "'JetBrains Mono', 'Fira Code', monospace",
+    "terminal.integrated.lineHeight": 1.3,
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.cursorStyle": "line",
 
@@ -170,7 +173,7 @@
     "debug.node.autoAttach": "off",
 
     // Workbench Configuration
-    "workbench.colorTheme": "Monokai",
+    "workbench.colorTheme": "Night Owl",
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.editor.enablePreview": false,

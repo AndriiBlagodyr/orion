@@ -11,6 +11,8 @@
       "eamodio.gitlens",
       "mhutchie.git-graph",
       "rangav.vscode-thunder-client",
-      "humao.rest-client"
+      "humao.rest-client",
+      "charliermarsh.ruff",
+      "ms-python.python"
   ]
 }
